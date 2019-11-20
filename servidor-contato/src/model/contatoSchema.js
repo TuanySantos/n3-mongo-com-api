@@ -21,8 +21,13 @@ const ContatoSchema = new Schema({
     },
 
     fotoPerfil:{
-        
-    }
+        type: String,   
+    },
+
+    dataNascimento:{
+        type: Date,
+        required: true,
+    },
 })
 
 const ContatosCollection = mongoose.model('contato', ContatoSchema)

@@ -19,5 +19,9 @@ app.use(function (request, response, next) {
 
 app.use("/", index)
 app.use("/contatos", contatos)
+app.use("/id/:id", contatos)
+app.use("/nome/:nome", contatos)
+
+
 
 module.exports = app
