@@ -56,6 +56,29 @@ const getById = (request, response) => {
     });  
    }
 
+const updateById = (request, response) =>{
+    const idParams = request.params.id
+    const contatoDoBody = request.body
+    const options = {new:true}
+
+    contatosCollection.findByIdAndUpdate(
+      idParams,
+      contatoDoBody,
+      options,
+
+      (error, contato) =>{
+        if(error){
+          return response.status(500).send(error) 
+        }else if(contato){
+          return response.status(200).send(contato)
+        }else{
+          return response.status(404)
+        }
+      })
+    }
+  
+
+
 
 
 const add = (request, response) => {
@@ -77,5 +100,6 @@ module.exports = {
   getByName,
   getById,
   add,
+  updateById,
   removeById
 }
